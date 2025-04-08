@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Analyse de sentiment{% endblock %}
+
+{% block content %}
+<h2>Analyser un texte</h2>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="text" placeholder="Entrez votre texte"></textarea>
+    <button type="submit">Analyser</button>
+</form>
+
+{% if sentiment is not None %}
+<div>
+    <h3>Résultat :</h3>
+    <p>Sentiment : {{ sentiment|floatformat:2 }}</p>
+    {% if sentiment > 0.2 %}
+        <p>😊 Ce texte exprime un sentiment positif.</p>
+    {% elif sentiment < -0.2 %}
+        <p>😞 Ce texte exprime un sentiment négatif.</p>
+    {% else %}
+        <p>😐 Ce texte exprime un sentiment neutre.</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}
