@@ -1,29 +1,42 @@
+1. Cloner ce projet
+
+1. Se déplacer dans le répertoire du projet
+    ```
+    cd e5-demo
+    ```
+
+1. Créer un environnement virtuel dans le répertoire parent du projet
+    * Windows
+    ```
+    python -m venv ..\venv
+    ```
+    * Linux/macOS
+    ```
+    python -m venv ../venv
+    ```
+
 1. Activer l'environnement virtuel
 
-* Windows
+    * Windows
     ```
-    .\venv\Scripts\activate
+    ..\venv\Scripts\activate
+    ```
+    * Linux/macOS
+    ```
+    source ../venv/bin/activate
     ```
 
-* MacOS/Linux
-    ```
-    source venv/bin/activate
-    ```
-
-2. Dans le répertoire du projet, installer les dépendances
+1. Installer les dépendances
     ```
     pip install -r requirements.txt
     ```
 
-3. Créer les migrations pour la base de données et les appliquer
-    ```
-    python manage.py makemigrations
-    ```
+1. Appliquer les migrations existantes
     ```
     python manage.py migrate
     ```
  
- 4. Lancer le serveur
+ 1. Lancer le serveur
     ```
     python manage.py runserver
     ```
